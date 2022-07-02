@@ -9,11 +9,15 @@ package com.pupilcc.common.rest;
 public interface IErrorCode {
     /**
      * 错误编码 -1、失败 0、成功
+     *
+     * @return code
      */
     long getCode();
 
     /**
      * 错误描述
+     *
+     * @return msg
      */
     String getMsg();
 }

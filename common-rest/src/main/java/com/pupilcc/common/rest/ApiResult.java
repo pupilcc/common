@@ -80,6 +80,8 @@ public class ApiResult<T> implements Serializable {
 
     /**
      * 服务间调用非业务正常，异常直接释放
+     *
+     * @return data
      */
     public T serviceData() {
         if (!this.failed()) {
