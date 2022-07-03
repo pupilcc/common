@@ -5,14 +5,38 @@
     <parent>
         <groupId>com.pupilcc.common</groupId>
         <artifactId>common-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
+    <packaging>jar</packaging>
 
     <artifactId>common-rest</artifactId>
     <name>${project.artifactId}</name>
     <description>REST API</description>
-    <packaging>jar</packaging>
+    <url>https://github.com/pupilcc/common</url>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License v3.0</name>
+            <url>https://github.com/pupilcc/common/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>pupilcc</name>
+            <email>cc@pupilcc.com</email>
+            <organization>Sonatype</organization>
+            <organizationUrl>https://www.sonatype.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/pupilcc/common.git</connection>
+        <developerConnection>scm:git:ssh://github.com:pupilcc/common.git</developerConnection>
+        <url>https://github.com/pupilcc/common</url>
+    </scm>
 
 
     <properties>
