@@ -7,7 +7,7 @@
     <groupId>com.pupilcc.common</groupId>
     <artifactId>common-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
@@ -37,6 +37,8 @@
 
     <modules>
         <module>common-rest</module>
+        <module>common-util</module>
+        <module>common-database</module>
     </modules>
 
     <properties>

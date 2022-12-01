@@ -1,31 +1,29 @@
 package com.pupilcc.common.rest;
 
-import com.pupilcc.common.rest.IErrorCode;
-
 /**
  * REST API 请求异常类
  *
  * @author pupilcc
  * @since 2022-07-02
  */
-public class ApiException extends RuntimeException {
+public class BaseException extends RuntimeException {
     private static final long serialVersionUID = -5885155226898287919L;
     private IErrorCode errorCode;
 
-    public ApiException(IErrorCode errorCode) {
+    public BaseException(IErrorCode errorCode) {
         super(errorCode.getMsg());
         this.errorCode = errorCode;
     }
 
-    public ApiException(String message) {
+    public BaseException(String message) {
         super(message);
     }
 
-    public ApiException(Throwable cause) {
+    public BaseException(Throwable cause) {
         super(cause);
     }
 
-    public ApiException(String message, Throwable cause) {
+    public BaseException(String message, Throwable cause) {
         super(message, cause);
     }
 

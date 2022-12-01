@@ -11,9 +11,9 @@
 
     <packaging>jar</packaging>
 
-    <artifactId>common-rest</artifactId>
+    <artifactId>common-database</artifactId>
     <name>${project.artifactId}</name>
-    <description>REST API</description>
+    <description>database</description>
     <url>https://github.com/pupilcc/common</url>
 
     <licenses>
@@ -44,6 +44,28 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.3.2</version>
+        </dependency>
+    </dependencies>
 
     <distributionManagement>
         <snapshotRepository>

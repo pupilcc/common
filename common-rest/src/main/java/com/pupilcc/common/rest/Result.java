@@ -6,11 +6,10 @@ import java.util.Optional;
 /**
  * REST API 返回结果
  *
- * @author Mybatis Plus
  * @author pupilcc
  * @since 2022-07-02
  */
-public class ApiResult<T> implements Serializable {
+public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -28,34 +27,34 @@ public class ApiResult<T> implements Serializable {
      */
     private T data;
 
-    public ApiResult() {
+    public Result() {
     }
 
-    public ApiResult(IErrorCode errorCode) {
+    public Result(IErrorCode errorCode) {
         errorCode = Optional.ofNullable(errorCode).orElse(BaseErrorCode.FAILED);
         this.code = errorCode.getCode();
         this.msg = errorCode.getMsg();
     }
 
-    public static <T> ApiResult<T> restResult(T data, IErrorCode errorCode) {
+    public static <T> Result<T> restResult(T data, IErrorCode errorCode) {
         return restResult(data, errorCode.getCode(), errorCode.getMsg());
     }
 
-    private static <T> ApiResult<T> restResult(T data, long code, String msg) {
-        ApiResult<T> apiResult = new ApiResult<>();
-        apiResult.setCode(code);
-        apiResult.setData(data);
-        apiResult.setMsg(msg);
-        return apiResult;
+    private static <T> Result<T> restResult(T data, long code, String msg) {
+        Result<T> result = new Result<>();
+        result.setCode(code);
+        result.setData(data);
+        result.setMsg(msg);
+        return result;
     }
 
     /* success */
 
-    public static <T> ApiResult<T> success() {
+    public static <T> Result<T> success() {
         return restResult(null, BaseErrorCode.SUCCESS);
     }
 
-    public static <T> ApiResult<T> success(T data) {
+    public static <T> Result<T> success(T data) {
         BaseErrorCode aec = BaseErrorCode.SUCCESS;
         if (data instanceof Boolean && Boolean.FALSE.equals(data)) {
             aec = BaseErrorCode.FAILED;
@@ -66,11 +65,11 @@ public class ApiResult<T> implements Serializable {
 
     /* failed */
 
-    public static <T> ApiResult<T> failed(String msg) {
+    public static <T> Result<T> failed(String msg) {
         return restResult(null, BaseErrorCode.FAILED.getCode(), msg);
     }
 
-    public static <T> ApiResult<T> failed(IErrorCode errorCode) {
+    public static <T> Result<T> failed(IErrorCode errorCode) {
         return restResult(null, errorCode);
     }
 
@@ -85,7 +84,7 @@ public class ApiResult<T> implements Serializable {
      */
     public T serviceData() {
         if (!this.failed()) {
-            throw new ApiException(this.msg);
+            throw new BaseException(this.msg);
         } else {
             return this.data;
         }
