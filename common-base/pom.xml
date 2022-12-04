@@ -11,9 +11,9 @@
 
     <packaging>jar</packaging>
 
-    <artifactId>common-util</artifactId>
+    <artifactId>common-base</artifactId>
     <name>${project.artifactId}</name>
-    <description>util</description>
+    <description>base</description>
     <url>https://github.com/pupilcc/common</url>
 
     <licenses>
@@ -46,17 +46,30 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <groupId>com.pupilcc.common</groupId>
+            <artifactId>common-database</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.10</version>
+            <groupId>com.pupilcc.common</groupId>
+            <artifactId>common-rest</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.pupilcc.common</groupId>
+            <artifactId>common-util</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
